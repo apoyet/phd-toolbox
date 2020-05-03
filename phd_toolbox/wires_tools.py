@@ -2,7 +2,6 @@ import numpy as np
 import phd_toolbox.constants as cst
 
 # ORBIT EFFECT
-@staticmethod
 def orbit_shift(I_L, r_w, phi_w, Brho, mu0=cst.mu0_H_m):
     '''
     This functions computes the orbit shift induced by a wire in both planes.
@@ -23,7 +22,6 @@ def orbit_shift(I_L, r_w, phi_w, Brho, mu0=cst.mu0_H_m):
     return [dx,dy]
 
 # TUNE EFFECT
-@staticmethod
 def tune_shift(I_L, r_w, betx, bety, phi_w, Brho, mu0=cst.mu0_H_m):
     '''
     This functions computes the tune shift induced by a wire in both planes.
