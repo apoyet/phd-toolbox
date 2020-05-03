@@ -1,9 +1,8 @@
 import numpy as np
-import constants
 
 # ORBIT EFFECT
 @staticmethod
-def orbit_shift(I_L, r_w, phi_w, Brho, mu0=constants.mu0_H_m):
+def orbit_shift(I_L, r_w, phi_w, Brho, mu0):
     '''
     This functions computes the orbit shift induced by a wire in both planes.
     Taken from https://indico.cern.ch/event/456856/contributions/1968793/attachments/1196177/1740660/BBLR_LYON_2015.pdf
