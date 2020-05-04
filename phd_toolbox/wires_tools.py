@@ -19,8 +19,8 @@ def orbit_shift(I_L, r_w, betx, bety, qx, qy, phi_w, Brho, mu0=cst.mu0_H_m):
     '''
     theta_x = mu0*I_L*np.cos(phi_w)/2/np.pi/Brho/r_w
     theta_y = mu0*I_L*np.sin(phi_w)/2/np.pi/Brho/r_w
-    dx = betx*theta_x/2/np.sin(np.pi*qx)
-    dy = bety*theta_y/2/np.sin(np.pi*qy)
+    dx = betx*theta_x/2/np.sin(np.pi*qx)*np.cos(-np.pi*qx)
+    dy = bety*theta_y/2/np.sin(np.pi*qy)*np.cos(-np.pi*qy)
     return [dx,dy]
 
 # TUNE EFFECT
