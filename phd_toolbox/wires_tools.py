@@ -2,7 +2,7 @@ import numpy as np
 import phd_toolbox.constants as cst
 
 # ORBIT EFFECT
-def orbit_shift(I_L, r_w, phi_w, Brho, mu0=cst.mu0_H_m):
+def orbit_shift(I_L, r_w, betx, bety, qx, qy, phi_w, Brho, mu0=cst.mu0_H_m):
     '''
     This functions computes the orbit shift induced by a wire in both planes.
     Taken from https://indico.cern.ch/event/456856/contributions/1968793/attachments/1196177/1740660/BBLR_LYON_2015.pdf
@@ -17,8 +17,10 @@ def orbit_shift(I_L, r_w, phi_w, Brho, mu0=cst.mu0_H_m):
     Returns:
         [dx,dy]: lst of dim 2 (for x and y). Each element can be either a float or an array depending on the input.
     '''
-    dx = mu0*I_L*np.cos(phi_w)/2/np.pi/Brho/r_w
-    dy = mu0*I_L*np.sin(phi_w)/2/np.pi/Brho/r_w
+    theta_x = mu0*I_L*np.cos(phi_w)/2/np.pi/Brho/r_w
+    theta_y = mu0*I_L*np.sin(phi_w)/2/np.pi/Brho/r_w
+    dx = betx*theta_x/2/np.sin(np.pi*qx)
+    dy = bety*theta_y/2/np.sin(np.pi*qy)
     return [dx,dy]
 
 # TUNE EFFECT
